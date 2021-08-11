@@ -6,7 +6,7 @@
   "main": "index.js",
   "proxy": "http://localhost:3001",
   "engines": {
-    "yarn": "3.0.0"
+    "yarn": "2.x"
   },
   "scripts": {
     "start": "node server.js",
