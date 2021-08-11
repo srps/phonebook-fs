@@ -52,7 +52,7 @@ const add = (req, res) => {
     number: body.number,
   };
   persons = persons.concat(newPerson)
-  res.status(200).end();
+  res.status(200).json(newPerson).end();
 };
 
 const generateId = () => {

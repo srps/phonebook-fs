@@ -122,7 +122,12 @@ const App = () => {
           },2000)
       })
       .catch((error) => {
-        setErrorMessage(`${newName} is already in the Phonebook`)
+        if (error.error) {
+          setErrorMessage(error.error)
+        } else {
+          setErrorMessage(`Unexpected error occured creating ${person.name}`)
+        }
+        
         setTimeout(() => {
           setErrorMessage(null)
         },5000)
