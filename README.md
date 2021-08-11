@@ -1,4 +1,4 @@
-# phonebook-fs
+# phonebook-fullstack
  Phonebook app - Full stack
 
  ## Available Scripts

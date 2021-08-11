@@ -1,25 +1,20 @@
-let persons = [
-  {
-    id: 1,
-    name: "Arto Hellas",
-    number: "040-123456",
-  },
-  {
-    id: 2,
-    name: "Ada Lovelace",
-    number: "39-44-5323523",
-  },
-  {
-    id: 3,
-    name: "Dan Abramov",
-    number: "12-43-234345",
-  },
-  {
-    id: 4,
-    name: "Mary Poppendieck",
-    number: "39-23-6423122",
-  },
-];
+import fs from "fs"
+
+let persons = {}
+
+fs.readFile('./db.json', 'utf8', (err, data) => {
+
+  if (err) {
+      console.log(`Error reading file from disk: ${err}`);
+      persons = JSON.parse("")
+  } else {
+      // parse JSON string to JSON object
+      persons = JSON.parse(data).persons;
+      if (!persons) {
+        console.log(`Error reading persons data`)
+      }
+  }
+});
 
 const list = (req, res) => {
   res.json(persons);

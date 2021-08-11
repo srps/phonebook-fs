@@ -2,12 +2,14 @@ import express, { request, response } from "express";
 import ejs from "ejs";
 import person from "./person.js";
 import morgan from "morgan";
+import cors from "cors"
 
 const app = express();
 
 app.engine(".html", ejs.__express);
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static("build"));
+app.use(cors())
 app.set("view engine", "html");
 
 // Logging request w/ body contents
@@ -27,7 +29,7 @@ app.get("/info", (request, response) => {
   });
 });
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
