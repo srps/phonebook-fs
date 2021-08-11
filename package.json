@@ -6,7 +6,8 @@
   "main": "index.js",
   "proxy": "http://localhost:3001",
   "engines": {
-    "yarn": "berry"
+    "node": "16.x",
+    "yarn": "3.x"
   },
   "scripts": {
     "start": "node server.js",
